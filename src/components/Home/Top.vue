@@ -1,5 +1,5 @@
 <template>
-    <div class="bigtitle">
+    <div class="bigtitle ">
         <div class="left">
             <div class="title">Товары</div>
             <div class="all">
@@ -48,5 +48,5 @@
 </script>
 
 <style>
-
+    
 </style>

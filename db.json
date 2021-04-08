@@ -1,19 +1,63 @@
 {
-  "posts": [
+  "receipt": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "company": "ABC Pharm",
+      "sf": "12312312312",
+      "date": "2021-12-12",
+      "id": 1
     }
   ],
-  "comments": [
+  "dorilar": [
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "reid": "1",
+      "nomi": "testlar",
+      "tarkib": "test",
+      "turi": "Капсулы",
+      "srok": "2312-12-31",
+      "doza": "15",
+      "dona": "30",
+      "ishlab": "TestPharm",
+      "qadoq": "3",
+      "qdona": "15",
+      "bnarhi": "15000",
+      "pnarhi": "17000",
+      "foiz": "10",
+      "bonarhi": "17170",
+      "id": 1
+    },
+    {
+      "reid": "1",
+      "nomi": "Aspirin",
+      "tarkib": "aspirin",
+      "turi": "Таблетки",
+      "srok": "2021-12-12",
+      "doza": "30",
+      "dona": "10",
+      "ishlab": "PharmBirbalo",
+      "qadoq": "10",
+      "qdona": "30",
+      "bnarhi": "10000",
+      "pnarhi": "12000",
+      "foiz": "10",
+      "bonarhi": "12120",
+      "id": 2
+    },
+    {
+      "reid": "1",
+      "nomi": "Vizin",
+      "tarkib": "Vizin",
+      "turi": "Капсулы",
+      "srok": "1231-12-31",
+      "doza": "100",
+      "dona": "10",
+      "ishlab": "VizinPharm",
+      "qadoq": "50",
+      "qdona": "10",
+      "bnarhi": "15000",
+      "pnarhi": "18000",
+      "foiz": "15",
+      "bonarhi": "23000",
+      "id": 3
     }
-  ],
-  "profile": {
-    "name": "typicode"
-  }
+  ]
 }

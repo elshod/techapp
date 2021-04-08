@@ -1,17 +1,36 @@
-<template><div id="app"><Navs/><Top/><div class="view"><router-view/></div></div></template><script>import Navs from './components/App/Nav'
-import Top from './components/App/Top'
+<template>
+<div id="app">
+  <Navs/><Top/>
+  <div class="view">
+    <router-view/>
+    </div>
+    </div>
+</template>
+
+<script>
+  import Navs from './components/App/Nav'
+  import Top from './components/App/Top'
 
 export default {
   components: {
     Navs,
     Top
+  },
+  created() {
+    this.$store.dispatch('allDorilar')
+    this.$store.dispatch('allReceipt')
   }
 }
 
-</script><style lang="scss">@import url(assets/style.scss);
+</script>
+<style lang="scss">
+@import url(./assets/style.scss);
+
+
 
 body {
   background-color: #F8F8FB;
+  font-family: 'gotham';
 }
 
 .view {

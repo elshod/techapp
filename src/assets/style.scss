@@ -1,7 +1,37 @@
 body, * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: 'gotham';
+    src: url(../assets/fonts/GothamPro.ttf)
+}
+@font-face{
+    font-family: 'gilroy-m';
+    src: url(../assets/fonts/Gilroy-Medium.ttf)
+}
+@font-face{
+    font-family: 'gotham-b';
+    src: url(../assets/fonts/GothamPro-Bold.ttf)
 }
 body {
     background-color: #ccc;
+    font-family: 'gotham';
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.col-6 {
+    flex-basis: 50%;
+    padding: 0px 10px;
+    width: 50%;
+    max-width: 50%;
+}
+.manual__form .mbox .title{
+    min-height: 16px;
 }

@@ -65,6 +65,7 @@ export default {
         }
       }
     }
+    button.pause,
     button.add {
       background-color: #6F52ED;
       font-size: 14px;
@@ -75,9 +76,19 @@ export default {
       width: 225px;
       padding: 14px 15px;
       border-radius: 5px;
+      &.center {
+        justify-content: center;
+      }
       svg {
         margin-right: 30px;
       }
+    }
+    button.pause {
+      background-color: #FFB800;
+      margin-left: auto;
+      text-align: center;
+      justify-content: center;
+      margin-right: 25px;
     }
     button.settings {
       border-radius: 5px;

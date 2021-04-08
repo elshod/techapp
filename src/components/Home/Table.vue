@@ -5,7 +5,7 @@
                 <tr>
                     <th>№</th>
                     <th>Наименование</th>
-                    <th>Серия</th>
+                    <th>Состав</th>
                     <th>Срок.год</th>
                     <th>Кол-во</th>
                     <th>Базавая цена</th>
@@ -17,18 +17,18 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(n,i) of 15" :key='i'>
-                    <td>№</td>
-                    <td>Цитрамон</td>
-                    <td>312AAB241</td>
-                    <td>12.12.2022</td>
-                    <td>123 п</td>
-                    <td>2 300 сум</td>
-                    <td>2 300 с</td>
-                    <td>12 000 300 с</td>
-                    <td>10%</td>
-                    <td>Oksmed</td>
-                    <td>TrueChange</td>
+                <tr v-for="(dori,i) of dorilar" :key='i'>
+                    <td>{{i+1}}</td>
+                    <td>{{dori.nomi}}</td>
+                    <td>{{dori.tarkib}}</td>
+                    <td>{{dori.srok}}</td>
+                    <td>{{dori.qadoq*dori.dona+dori.qdona*1}}</td>
+                    <td>{{dori.bnarhi}} сум</td>
+                    <td>{{dori.pnarhi}} сум</td>
+                    <td>{{dori.pnarhi*dori.qadoq}} сум</td>
+                    <td>{{dori.foiz}}%</td>
+                    <td>{{dori.ishlab}}</td>
+                    <td>{{change(dori.reid)}}</td>
                 </tr>
             </tbody>
         </table>
@@ -37,7 +37,16 @@
 
 <script>
 export default {
-
+    computed:{
+        dorilar(){
+            return this.$store.getters.getDorilar
+        }
+    },
+    methods:{
+        change(id){
+            return this.$store.getters.getCompany(id)
+        }
+    }
 }
 </script>
 

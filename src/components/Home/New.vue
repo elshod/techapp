@@ -6,7 +6,13 @@
             <div class="t">Поставщик</div>
             <div class="inp del">
                 <input type="text" v-model="receipt.company">
-                <button>+</button>
+                <button @click="clearComp" class="clear" v-show="receipt.company.length>0">X</button>
+                <button @click="newComp">+</button>
+            </div>
+            <div class="comps" v-show="receipt.company.length>0 && isActive">
+                <div class="item" v-for="(comp,index) of company" :key="index" @click="toCompany(index)">
+                    {{comp.title}}
+                </div>
             </div>
         </div>
         <div class='newmodal__box'>
@@ -33,17 +39,43 @@ import axios from 'axios'
 export default {
     data(){
         return {
-            receipt: {},
+            isActive:true,
+            receipt: {
+                company: ''
+            },
             recId: 0
         }
     },
     computed: {
-
+        company(){
+            let comps =  this.$store.getters.getAllCompany
+            return comps.filter(item => {
+                console.log(item.title,this.receipt.company);
+                return item.title.toLowerCase().indexOf(this.receipt.company.toLowerCase()) !== -1
+            })
+        },
+        allCompany(){
+            return this.$store.getters.getAllCompany
+        },
         newModal(){
             return this.$store.getters.getNewModal
         }
     },
     methods: {
+        clearComp(){
+            this.receipt.company = ''
+            this.isActive = true
+            this.receipt.sf = ''
+        },
+        toCompany(index){
+            this.receipt.sf = this.company[index].sf
+            this.receipt.company = this.company[index].title
+            
+            this.isActive = false
+        },
+        newComp(){
+            this.$store.commit('changeNewCompModal',true)
+        },
         add(){
             axios.post('http://localhost:3000/receipt',this.receipt).then(response => {
             this.$router.push(`/manual/${response.data.id}`)
@@ -92,6 +124,16 @@ export default {
     .newmodal__box {
         margin-bottom: 31px;
         display: block;
+        position: relative;
+        .comps{
+            position: absolute;
+            top: 102%;
+            border: 1px solid #e7e7e7;
+            padding: 10px;
+            background-color: #fff;
+            width: 100%;
+            z-index: 1;
+        }
     }
     input[type="date"]::-webkit-inner-spin-button,
     input[type="date"]::-webkit-calendar-picker-indicator {
@@ -137,6 +179,11 @@ export default {
             align-items: center;
             justify-content: center;
             color: #fff;
+            &.clear{
+                background: unset;
+                color: rgb(133, 133, 133);
+                font-size: 18px;
+            }
         }
     }
 }

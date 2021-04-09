@@ -19,6 +19,7 @@ export default {
   created() {
     this.$store.dispatch('allDorilar')
     this.$store.dispatch('allReceipt')
+    this.$store.dispatch('allCompany')
   }
 }
 

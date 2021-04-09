@@ -3,6 +3,7 @@
     <Top/>    
     <Table/>    
     <New/>
+    <Newcomp/>
   </div>
 </template>
 
@@ -10,10 +11,11 @@
 import Top from '../components/Home/Top'
 import Table from '../components/Home/Table'
 import New from '../components/Home/New'
+import Newcomp from '../components/Home/NewComp'
 export default {
   name: 'Home',
   components: {
-    Top, Table, New
+    Top, Table, New, Newcomp
   }
 }
 </script>
